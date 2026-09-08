@@ -1,0 +1,30 @@
+RIVERSIDE PLAZA
+COMMERCIAL MORTGAGE LOAN AGREEMENT
+
+Loan ID: 1001
+Borrower: Riverside Holdings LLC
+Property: Riverside Plaza
+
+SECTION 4 — MATURITY
+
+The outstanding principal balance and all accrued amounts shall
+become due and payable on June 1, 2031.
+
+SECTION 8 — FINANCIAL COVENANTS
+
+The Borrower shall maintain a Debt Service Coverage Ratio
+of no less than 1.20.
+
+Debt Service Coverage Ratio shall be determined using annual
+Net Operating Income divided by annual debt service.
+
+SECTION 11 — ADDITIONAL INDEBTEDNESS
+
+The Borrower may not incur additional secured indebtedness
+against Riverside Plaza without the prior written consent
+of the lender.
+
+SECTION 15 — INSURANCE
+
+The Borrower must maintain property, casualty, and liability
+insurance for the mortgaged property.

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "balance_1001",
+    "question": "What is the current balance of loan 1001?",
+    "expected_any": [
+      "32,500,000",
+      "32.5 million"
+    ],
+    "rubric": "The answer must clearly state that loan 1001 has a current balance of $32,500,000 and must not invent conflicting loan information.",
+    "required_tools": [
+      "get_loan"
+    ],
+    "forbidden_tools": [
+      "calculate_dscr",
+      "file_search_call"
+    ],
+    "max_tool_calls": 1,
+    "expected_tool_arguments": {
+      "get_loan": {
+        "loan_id": "1001"
+      }
+    }
+  },
+  {
+    "id": "dscr_1001",
+    "question": "What is the current DSCR of loan 1001?",
+    "expected_any": [
+      "1.25"
+    ],
+    "rubric": "The answer must correctly state that loan 1001's current DSCR is 1.25. It may mention NOI of $1,250,000 and annual debt service of $1,000,000.",
+    "required_tools": [
+      "get_loan",
+      "calculate_dscr"
+    ],
+    "forbidden_tools": [],
+    "max_tool_calls": 3,
+    "expected_tool_arguments": {
+      "get_loan": {
+        "loan_id": "1001"
+      },
+      "calculate_dscr": {
+        "noi": 1250000,
+        "annual_debt_service": 1000000
+      }
+    }
+  },
+  {
+    "id": "covenant_1001",
+    "question": "What minimum DSCR must Riverside Plaza maintain?",
+    "expected_any": [
+      "1.20"
+    ],
+    "rubric": "The answer must state that Riverside Plaza is contractually required to maintain a minimum DSCR of 1.20.",
+    "required_tools": [
+      "file_search_call"
+    ],
+    "forbidden_tools": [],
+    "max_tool_calls": 2,
+    "expected_tool_arguments": {}
+  },
+  {
+    "id": "compliance_1001",
+    "question": "Is loan 1001 currently complying with its DSCR covenant?",
+    "expected_any": [
+      "1.25",
+      "1.20"
+    ],
+    "rubric": "The answer must conclude that loan 1001 is currently compliant because its calculated DSCR is 1.25 and the contractual minimum is 1.20.",
+    "required_tools": [
+      "get_loan",
+      "calculate_dscr",
+      "file_search_call"
+    ],
+    "forbidden_tools": [],
+    "max_tool_calls": 5,
+    "expected_tool_arguments": {
+      "get_loan": {
+        "loan_id": "1001"
+      },
+      "calculate_dscr": {
+        "noi": 1250000,
+        "annual_debt_service": 1000000
+      }
+    }
+  },
+  {
+    "id": "unknown_loan",
+    "question": "What is the current DSCR of loan 9999?",
+    "expected_any": [
+      "not found",
+      "cannot",
+      "unable",
+      "couldn't",
+      "can't"
+    ],
+    "rubric": "The answer must clearly indicate that loan 9999 could not be found and therefore its DSCR cannot be determined. It must not invent financial values.",
+    "required_tools": [
+      "get_loan"
+    ],
+    "forbidden_tools": [
+      "calculate_dscr"
+    ],
+    "max_tool_calls": 2,
+    "expected_tool_arguments": {
+      "get_loan": {
+        "loan_id": "9999"
+      }
+    }
+  }
+]

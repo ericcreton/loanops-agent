@@ -1,0 +1,28 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.db-shm
+*.db-wal
+
+# macOS
+.DS_Store
+
+# Frontend dependencies/build output
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# Logs
+*.log
