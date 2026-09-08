@@ -5,7 +5,7 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 from agents import (
     Agent,
@@ -33,6 +33,13 @@ VECTOR_STORE_ID = os.environ["LOANOPS_VECTOR_STORE_ID"]
 class ChatRequest(BaseModel):
     message: str
     session_id: str = "web_demo"
+
+    @field_validator("message")
+    @classmethod
+    def validate_message(cls, message: str) -> str:
+        if not message.strip():
+            raise ValueError("Message must not be empty or whitespace-only.")
+        return message
 
 
 class ChatResponse(BaseModel):
